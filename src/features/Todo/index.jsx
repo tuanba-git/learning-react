@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles.scss';
 import TodoList from './TodoList';
 
-const initListTodo = [
+const initTodoList = [
   {
     id: '01',
     title: 'Working',
@@ -34,8 +34,8 @@ const initListTodo = [
 ];
 
 function TodoFeature(props) {
-  const [todoList, setTodoList] = useState(initListTodo);
-
+  const [todoList, setTodoList] = useState(initTodoList);
+  const [filteredStatus, setFilteredStatus] = useState('all');
   const handleTodoClick = (todo, index) => {
     // clone object
     const newTodoList = [...todoList];
@@ -47,9 +47,35 @@ function TodoFeature(props) {
     setTodoList(newTodoList);
   };
 
+  const handledShowAll = () => {
+    setFilteredStatus('all');
+  };
+
+  const handledShowDone = () => {
+    setFilteredStatus('done');
+  };
+  const handledShowDoing = () => {
+    setFilteredStatus('doing');
+  };
+
+  const todoListFilter = todoList.filter(
+    todo => filteredStatus === 'all' || filteredStatus === todo.status
+  );
+
   return (
     <div>
-      <TodoList todoList={todoList} onTodoCLick={handleTodoClick} />
+      <TodoList todoList={todoListFilter} onTodoCLick={handleTodoClick} />
+      <div className="buttonGroup">
+        <button className="buttonFilter" onClick={handledShowAll}>
+          Show All
+        </button>
+        <button className="buttonFilter" onClick={handledShowDone}>
+          Show done
+        </button>
+        <button className="buttonFilter" onClick={handledShowDoing}>
+          Show Doing
+        </button>
+      </div>
     </div>
   );
 }
