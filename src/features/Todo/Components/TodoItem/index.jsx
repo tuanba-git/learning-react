@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import classNames from 'classnames';
 
 TodoItem.propTypes = {
-  key: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -11,21 +11,25 @@ TodoItem.propTypes = {
 };
 
 TodoItem.deafaultProps = {
-  key: 0,
   id: '00',
   title: 'title',
   description: 'description',
-  status: 'status'
+  status: 'doing'
 };
 
 function TodoItem(props) {
-  const { id, title, description } = props;
+  const { id, title, description, status } = props;
   return (
-    <div class="card">
-      <div class="content">
+    <div className="card">
+      <div className="content">
         <h1>{id}</h1>
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3>
+          {title}
+          {status === 'done' ? ' 🎉' : ' 🙄'}
+        </h3>
+        <p className={classNames({ completed: status === 'done' })}>
+          {description}
+        </p>
         {/* <a href="#">Read more</a> */}
       </div>
     </div>
