@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import classNames from 'classnames';
+import VanillaTilt from 'effects/cardEffect';
 
 TodoItem.propTypes = {
   id: PropTypes.string.isRequired,
@@ -19,8 +20,14 @@ TodoItem.deafaultProps = {
 
 function TodoItem(props) {
   const { id, title, description, status } = props;
+
+  VanillaTilt.init(document.querySelectorAll('.card'), {
+    max: 25,
+    speed: 400
+  });
+
   return (
-    <div className="card">
+    <div className={classNames(['card', { carddone: status === 'done' }])}>
       <div className="content">
         <h1>{id}</h1>
         <h3>
