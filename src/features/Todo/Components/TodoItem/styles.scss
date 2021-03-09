@@ -76,4 +76,39 @@
     text-decoration: line-through;
     color: #ccc;
   }
-} 
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonFilter {
+	box-shadow:inset 0px 1px 0px 0px #f6fadc;
+	background:linear-gradient(to bottom, #faf0be 5%, #e8a97f 100%);
+	background-color:#faf0be;
+	border-radius:6px;
+	border:1px solid #f29285;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #cc5454;
+
+  position: relative;
+  z-index: 1;
+  margin: 5px;
+  padding: 5px;
+}
+.buttonFilter:hover {
+	background:linear-gradient(to bottom, #e8a97f 5%, #faf0be 100%);
+	background-color:#e8a97f;
+}
+.buttonFilter:active {
+	position:relative;
+	top:1px;
+}
