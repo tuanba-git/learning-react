@@ -1,37 +1,7 @@
 import React, { useState } from 'react';
 import './styles.scss';
 import TodoList from './TodoList';
-
-const initTodoList = [
-  {
-    id: '01',
-    title: 'Working',
-    description:
-      '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor tempor sapien',
-    status: 'doing'
-  },
-  {
-    id: '02',
-    title: 'Study',
-    description:
-      '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor tempor sapien',
-    status: 'doing'
-  },
-  {
-    id: '03',
-    title: 'Play',
-    description:
-      '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor tempor sapien',
-    status: 'doing'
-  },
-  {
-    id: '04',
-    title: 'Coding',
-    description:
-      '4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor tempor sapien',
-    status: 'doing'
-  }
-];
+import initTodoList from './mock/todoData';
 
 function TodoFeature(props) {
   const [todoList, setTodoList] = useState(initTodoList);
