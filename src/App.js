@@ -1,9 +1,9 @@
-import './App.css';
+import TodoFeature from './features/Todo';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Hello Learning ReactJs</header>
+    <div>
+      <TodoFeature></TodoFeature>
     </div>
   );
 }
